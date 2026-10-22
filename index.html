@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TranTu Online Judge</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f6fc;
+    color: #183653;
+}
+
+header {
+    background: #0755a5;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #9ed5ff;
+}
+
+.hero {
+    padding: 55px 7%;
+    background: linear-gradient(120deg, #dceeff, #ffffff);
+}
+
+.hero h1 {
+    color: #0755a5;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #55728e;
+}
+
+button {
+    border: none;
+    border-radius: 7px;
+    padding: 12px 18px;
+    background: #0879e8;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #064d9a;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 25px auto;
+    padding: 0 18px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #dce7f2;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 12px #16365308;
+}
+
+.card h2 {
+    color: #0755a5;
+    margin: 0 0 8px;
+}
+
+.section-title {
+    color: #0755a5;
+    margin-top: 35px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e1eaf3;
+}
+
+th {
+    background: #e6f2ff;
+    color: #0755a5;
+}
+
+tr:hover {
+    background: #f5faff;
+}
+
+.tag {
+    background: #d8f8e8;
+    color: #07834f;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 25px;
+    text-align: center;
+    background: #07366d;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 18px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .table-wrap {
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">&lt;/&gt; TranTu</div>
+
+    <nav>
+        <a href="#home">Trang chủ</a>
+        <a href="#problems">Bài tập</a>
+        <a href="#contests">Cuộc thi</a>
+        <a href="#ranking">Xếp hạng</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>TranTu Online Judge</h1>
+    <p>Nền tảng luyện tập và thi lập trình trực tuyến.</p>
+    <p>Học thuật toán · Luyện C++ · Chinh phục HSG Tin học</p>
+
+    <button onclick="document.getElementById('problems').scrollIntoView()">
+        Bắt đầu luyện tập
+    </button>
+</section>
+
+<main class="container">
+
+    <div class="stats">
+        <div class="card">
+            <h2>10+</h2>
+            <p>Bài tập mẫu</p>
+        </div>
+
+        <div class="card">
+            <h2>C++17</h2>
+            <p>Ngôn ngữ lập trình</p>
+        </div>
+
+        <div class="card">
+            <h2>HSG Tin</h2>
+            <p>Luyện thi học sinh giỏi</p>
+        </div>
+
+        <div class="card">
+            <h2>TranTu</h2>
+            <p>Cùng tiến bộ mỗi ngày</p>
+        </div>
+    </div>
+
+    <h2 class="section-title" id="problems">
+        Danh sách bài tập
+    </h2>
+
+    <div class="card table-wrap" style="padding:0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã bài</th>
+                    <th>Tên bài</th>
+                    <th>Chủ đề</th>
+                    <th>Độ khó</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+
+            <tbody id="problemList"></tbody>
+        </table>
+    </div>
+
+    <h2 class="section-title" id="contests">
+        Cuộc thi lập trình
+    </h2>
+
+    <div class="card">
+        <h3>TranTu Algorithm Challenge</h3>
+        <p>Luyện tư duy thuật toán và kỹ năng lập trình C++.</p>
+        <button onclick="alert('Chức năng cuộc thi sẽ được phát triển tiếp!')">
+            Xem cuộc thi
+        </button>
+    </div>
+
+    <h2 class="section-title" id="ranking">
+        Bảng xếp hạng
+    </h2>
+
+    <div class="card">
+        <p>🥇 Nguyễn Văn A — 1200 điểm</p>
+        <p>🥈 Trần Văn B — 1050 điểm</p>
+        <p>🥉 Lê Văn C — 980 điểm</p>
+        <p style="color:#68839c;font-size:13px">
+            Đây là dữ liệu minh họa.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    <h3>TranTu Online Judge</h3>
+    <p>Nền tảng luyện tập lập trình dành cho học sinh.</p>
+    <p>© 2026 TranTu</p>
+</footer>
+
+<script>
+const problems = [
+    ["TT001", "Hello World", "Cơ bản", "Dễ"],
+    ["TT002", "Tổng hai số", "Số học", "Dễ"],
+    ["TT003", "Ước chung lớn nhất", "Số học", "Dễ"],
+    ["TT004", "Sắp xếp dãy số", "Mảng", "Trung bình"],
+    ["TT005", "Tìm kiếm nhị phân", "Tìm kiếm", "Trung bình"],
+    ["TT006", "Xử lý xâu ký tự", "Xâu", "Trung bình"],
+    ["TT007", "Đếm số nguyên tố", "Số học", "Khó"],
+    ["TT008", "Đường đi ngắn nhất", "Đồ thị", "Khó"],
+    ["TT009", "Quy hoạch động", "Thuật toán", "Khó"],
+    ["TT010", "Thử thách thuật toán", "Tổng hợp", "Khó"]
+];
+
+const list = document.getElementById("problemList");
+
+for (let i = 0; i < problems.length; i++) {
+    const p = problems[i];
+
+    const row = document.createElement("tr");
+
+    for (let j = 0; j < 4; j++) {
+        const cell = document.createElement("td");
+        cell.textContent = p[j];
+
+        if (j === 3) {
+            const tag = document.createElement("span");
+            tag.className = "tag";
+            tag.textContent = p[j];
+            cell.textContent = "";
+            cell.appendChild(tag);
+        }
+
+        row.appendChild(cell);
+    }
+
+    const action = document.createElement("td");
+    const btn = document.createElement("button");
+    btn.textContent = "Xem bài";
+
+    btn.onclick = function () {
+        alert(
+            "Mã bài: " + p[0] +
+            "\nTên bài: " + p[1] +
+            "\n\nĐây là danh sách bài mẫu của TranTu."
+        );
+    };
+
+    action.appendChild(btn);
+    row.appendChild(action);
+    list.appendChild(row);
+}
+</script>
+
+</body>
+</html>
